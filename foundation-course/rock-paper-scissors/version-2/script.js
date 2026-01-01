@@ -5,8 +5,14 @@ let computerChoice = "";
 let result = "";
 let run5Times = 1;
 
-let history = document.querySelector(".history");
-let totalScore = document.querySelector(".score");
+const history = document.querySelector(".history");
+
+let comScore = document.querySelector(".com");
+let playerScore = document.querySelector(".player");
+
+const chooseButton = document.querySelector(".choose-button");
+
+const resultDisplay = document.querySelector(".title-play");
 
 // Computer Input
 function getComputerChoice() {
@@ -20,13 +26,6 @@ function getComputerChoice() {
   }
 }
 
-// Result
-function addHistory(result) {
-  let addHist = document.createElement("li");
-  addHist.textContent = `${result}: ${humanChoice} vs ${computerChoice}`;
-  history.appendChild(addHist);
-}
-
 // Human vs Computer
 function playRound() {
   humanChoice = humanChoice.toUpperCase();
@@ -35,7 +34,7 @@ function playRound() {
     (humanChoice === "PAPER" && computerChoice === "ROCK") ||
     (humanChoice === "SCISSORS" && computerChoice === "PAPER")
   ) {
-    totalScore.textContent = humanScore += 1;
+    playerScore.textContent = humanScore += 1;
     addHistory("WIN");
   } else if (
     (humanChoice === "ROCK" && computerChoice === "ROCK") ||
@@ -44,46 +43,55 @@ function playRound() {
   ) {
     addHistory("DRAW");
   } else {
-    computerScore += 1;
+    comScore.textContent = computerScore += 1;
     addHistory("LOSS");
   }
 }
 
-let gameRun = 0;
-// run 5 times then show result
-function result5run() {
-  let resulText = "";
-  if (run5Times % 5 === 0) {
-    gameRun++;
-    if (humanScore > computerScore) {
-      resulText = `Game ${gameRun}: You WIN!`;
-    } else if (humanScore < computerScore) {
-      resulText = `Game ${gameRun}: You MOTHERF**KING LOSER!`;
-    } else {
-      resulText = `Game ${gameRun}: Its a DRAW`;
-    }
-    const h1 = document.querySelector("h1");
-    const displayresult = document.createElement("div");
-    displayresult.textContent = `${resulText}`;
-    displayresult.classList.add("displayresult");
-    h1.after(displayresult);
+// History
+function addHistory(result) {
+  let addHist = document.createElement("li");
+  addHist.textContent = `${result}: ${humanChoice} vs ${computerChoice}`;
+  history.appendChild(addHist);
+}
 
-  } else if ((run5Times - 1) % 5 === 0 && run5Times > 5) {
-    const displayresultText = document.querySelector(".displayresult");
-    displayresultText.remove();
+// run 5 times then show result
+function result5round() {
+  let resulText = "";
+  if (run5Times === 5) {
+    if (humanScore > computerScore) {
+      resultDisplay.textContent = `YOU WIN!`;
+    } else if (humanScore < computerScore) {
+      resultDisplay.textContent = `YOU LOSE!`;
+    } else {
+      resultDisplay.textContent = `BOTH WINS!`;
+    }
+
+    resultDisplay.classList.add("text-design");
+
+
+    while (chooseButton.firstChild) {
+      chooseButton.removeChild(chooseButton.firstChild);
+    }
+    let playAgain = document.createElement("button");
+    playAgain.textContent = "Play Again";
+    playAgain.style.width = "240px";
+
+    chooseButton.appendChild(playAgain);
+    playAgain.addEventListener("click", () => {
+      window.location.reload();
+    });
   }
 }
 // play the game
 function playGame() {
   let computerPlay = getComputerChoice;
   playRound(computerPlay());
-  result5run();
+  result5round();
 }
 
 // human Input
-const div = document.querySelector("div");
-
-div.addEventListener("click", (event) => {
+chooseButton.addEventListener("click", (event) => {
   if (event.target.tagName === "BUTTON") {
     // console.history(event.target.outerHTML);
     // console.history(event.target.textContent);

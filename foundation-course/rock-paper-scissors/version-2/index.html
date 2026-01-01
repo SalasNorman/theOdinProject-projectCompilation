@@ -4,23 +4,52 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Rock Paper Scissor</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <h1>Rock Paper Scissor</h1>
-    <div class="choose">
-      <h2>Choose:</h2>
-      <button>Rock</button>
-      <button>Paper</button>
-      <button>Scissor</button>
-    </div>
-    <div>
-      <h2>Score</h2>
-      <div class="score">0</div>
+
+    <div class="group-card">
+      <h2>GAME DESCRIPTION</h2>
+      <p class="game-desc">
+        First to win 5 rounds takes the victory. Choose wisely!
+      </p>
     </div>
 
-    <div>
-      <h2>History</h2>
+    <div class="group-card">
+      <h2>Score</h2>
+      <div class="score-group-card">
+        <div class="score-card">
+          <div class="title-score">Player</div>
+          <div class="player total-score">0</div>
+        </div>
+        <div>VS</div>
+        <div class="score-card">
+          <div class="title-score">Computer</div>
+          <div class="com total-score">0</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- <div class="group-card result-card hidden">
+      <div class="result">YOU WIN</div>
+    </div> -->
+
+    <div class="group-card">
+      <h2 class="title-play">MAKE YOUR MOVE</h2>
+      <div class="choose-button">
+        <button>Rock</button>
+        <button>Paper</button>
+        <button>Scissor</button>
+      </div>
+    </div>
+
+    <div class="group-card">
+      <h2 class="history-title">ROUND HISTORY</h2>
       <ol class="history"></ol>
     </div>
 
