@@ -17,7 +17,7 @@ container.addEventListener("mouseover", (event) => {
 gridSizeLabel.textContent = gridSizeInput.value;
 gridSizeInput.addEventListener("input", (event) => {
   defaultGridSize = event.target.value;
-  gridSizeLabel.textContent = defaultGridSize;
+  gridSizeLabel.textContent = `${defaultGridSize} x ${defaultGridSize}`;
   console.log(defaultGridSize);
   while (container.firstChild) {
     container.removeChild(container.firstChild);
