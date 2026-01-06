@@ -10,13 +10,14 @@
 
 h1 {
   border-bottom: 8px ridge hsl(0, 0%, 50%);
+  margin: 4px 0 12px;
 }
 
 .container {
   display: flex;
   align-content: flex-start;
   flex-wrap: wrap;
-  margin: 20px auto;
+  margin: 12px auto;
   border: 10px ridge hsl(0, 0%, 50%);
   border-radius: 5px;
 }
@@ -35,8 +36,20 @@ form {
   flex-direction: column;
   gap: 10px;
   width: 300px;
-  padding: 12px;
-  margin-bottom: 20px;
+  height: 170px;
+  padding: 4px;
   border: 4px dashed hsl(0, 0%, 0%);
   background-color: hsl(0, 0%, 87%);
 }
+
+.mode, .other {
+  background-color: rgb(208, 209, 255);
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+input {
+  margin-right: 10px;
+}
+
