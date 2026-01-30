@@ -7,9 +7,9 @@ def caesar_cipher(text,shift)
   encrypted_text = ''
   text.split("").each do |letter|
     if /[[:upper:]]/.match?(letter)
-      encrypted_letter = encryption(letter, 65, shift)
+      encrypted_letter = encryption_letter(letter, 65, shift)
     elsif /[[:lower:]]/.match?(letter)
-      encrypted_letter = encryption(letter, 97, shift)
+      encrypted_letter = encryption_letter(letter, 97, shift)
     else
       encrypted_letter = letter
     end
