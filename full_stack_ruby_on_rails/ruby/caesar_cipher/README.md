@@ -1,3 +1,5 @@
+**NOTE:** I only use AI for README and commit. That what AI use for.
+
 # Caesar Cipher
 
 A simple Ruby implementation of the Caesar cipher encryption algorithm.
