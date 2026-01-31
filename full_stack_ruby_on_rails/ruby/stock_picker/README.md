@@ -1,4 +1,4 @@
-**NOTE:** I only use AI for README and commit. That what AI use for.
+**NOTE:** I only use AI for README and commit. That what AI use for. <br>
 **NOTE:** Note ideal code, its storing unnecessary data in `log_result`.
 
 # Stock Picker
